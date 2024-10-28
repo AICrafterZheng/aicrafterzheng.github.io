@@ -18,4 +18,4 @@ categories: [Management, 1-1s]
 4. **Good 1-1s are not status meetings.**
     1.  If your 1-1 is a dreadful obligation for delivering a boring status report, try using email or chat for that purpose instead to free up the time, and bringing some topics of your own to the 1-1.
 5. **Come with an agenda of things you would like to discuss.** Share the responsibility of having good 1-1s with your manager. 
-6. **Ask 1-1.** If your manager cancels or reschedules on you regularly, push him to find a time that is more stable, or verify the day before (or that morning, for an afternoon meeting) that you will be meeting and share with him anything you are interested in discussing so he knows you want to meet.
+6. **Ensure Your 1-1**. If your manager cancels or reschedules on you regularly, push him to find a time that is more stable, or verify the day before (or that morning, for an afternoon meeting) that you will be meeting and share with him anything you are interested in discussing so he knows you want to meet.
