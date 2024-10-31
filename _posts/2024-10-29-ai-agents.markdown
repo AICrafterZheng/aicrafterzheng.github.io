@@ -1,10 +1,9 @@
 ---
 layout: post
-title:  "Why AI Agents Are the Next Big Thing in Tech (Microsoft Research)"
+title:  "Podcast Summary: Why AI Agents Are the Next Big Thing in Tech (Microsoft Research)"
 date:   2024-10-29 06:22:53 -0700
 categories: [AI, AI Agents]
 ---
-## Why AI Agents Are the Next Big Thing in Tech (Microsoft Research)
 
 ### Understanding AI Agents
 - Defined as AI-based entities that can:
@@ -248,4 +247,4 @@ categories: [AI, AI Agents]
 
 ---
 
-Podcast Eye on A.I.: [#214 Ece Kamar: Why AI Agents Are the Next Big Thing in Tech (Microsoft Research)](https://podcasts.apple.com/us/podcast/214-ece-kamar-why-ai-agents-are-the-next-big-thing-in/id1438378439?i=1000673441195)
+Podcast link: [Eye on AI - #214 Ece Kamar: Why AI Agents Are the Next Big Thing in Tech (Microsoft Research)](https://podcasts.apple.com/us/podcast/214-ece-kamar-why-ai-agents-are-the-next-big-thing-in/id1438378439?i=1000673441195)
