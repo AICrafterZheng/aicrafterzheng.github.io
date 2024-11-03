@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Globalizing Your Startup/One Person Company"
+title:  "独立开发者出海的常识"
 date:   2024-10-30 06:22:53 -0700
 categories: [Startups, Globalization]
 ---
