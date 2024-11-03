@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "原则科技CEO创业交流-如何在X做IP？分享嘉宾：铁锤人（直播总结）"
+title:  "原则科技CEO创业交流 3 - 如何在X做IP？分享嘉宾：铁锤人（直播总结）"
 date:   2024-10-24 06:22:53 -0700
 categories: [创业, Startups]
 ---
