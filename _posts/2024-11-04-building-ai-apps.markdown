@@ -16,12 +16,12 @@ categories: [AI]
 - Then iterate with prompt engineering (few shot examples, chain of thought, descriptive prompts) before building a more complex system with chained LLM calls.
 
 4. **Use RAG** 
-- When dealing with data you need the LLM to use as context, use RAG(then iterate with your evals to try different chunking/embedding strategies, adding a re-ranker, ect..).
+- When dealing with data you need the LLM to use as context, use RAG (then iterate with your evals to try different chunking/embedding strategies, adding a re-ranker, etc.).
 
 5. **Use finetuning**
 - When you want to have the LLM optimize on a domain-specific thing or on a specific style (i.e, write emails like you do), use finetuning.
 
-6. **When launching, ship with observability and look at the data.** 
+6. **When launching, ship with observability and look at the data** 
 - It's so important to look at how people are using your system, then you can do things like segment customer prompts, run evals on them, and get great info on where you need to improve your AI system.
 
 (source: [@nutlope](https://x.com/nutlope/status/1852359455884583283))
