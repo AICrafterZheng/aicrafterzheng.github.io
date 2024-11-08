@@ -24,7 +24,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   AI Engineer @Big Tech | Building AI Apps. Always learning and exploring the frontiers of AI.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://dannyzheng.me/" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: DannyzhengHQ
+twitter_username: DannyZhengHQ
 github_username:  AICrafterZheng
 
 # Build settings
