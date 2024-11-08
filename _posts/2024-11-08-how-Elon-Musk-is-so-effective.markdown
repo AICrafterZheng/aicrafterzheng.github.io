@@ -32,10 +32,10 @@ categories: [Elon Musk, Effective, Engineering]
 
 - Embraces public failure as learning opportunity
 - SpaceX:
-- Ran through five rocket generations of which four would fail but he would learn so much that the fifth one would work
-- Would go through the five generations faster than his rocket competitors could do one generation
+    - Ran through five rocket generations of which four would fail but he would learn so much that the fifth one would work
+    - Would go through the five generations faster than his rocket competitors could do one generation
+    - Willing to have rockets explode in testing
 - **Doesn't let public perception slow progress**
-- Willing to have rockets explode in testing
 
 ## First principles thinking
 
