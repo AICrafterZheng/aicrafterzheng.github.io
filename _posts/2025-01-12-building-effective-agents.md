@@ -29,29 +29,35 @@ We suggest that developers start by using LLM APIs directly: many patterns can b
 ## Building blocks, workflows, and agents
 
 ### Building block: The augmented LLM
-
-![alt text](image.png)
+The basic building block of agentic systems is an LLM enhanced with augmentations such as retrieval, tools, and memory.
+![alt text](/assets/image.png)
 
 ### Workflow: Prompt chaining
-![alt text](image-1.png)
+This workflow is ideal for situations where the task can be easily and cleanly decomposed into fixed subtasks. The main goal is to trade off latency for higher accuracy, by making each LLM call an easier task.
+![alt text](/assets/image-1.png)
+
 
 ### Workflow: Routing
-
-![alt text](image-2.png)
+Routing works well for complex tasks where there are distinct categories that are better handled separately, and where classification can be handled accurately, either by an LLM or a more traditional classification model/algorithm.
+![alt text](/assets/image-2.png)
 
 ### Workflow: Parallelization
-![alt text](image-3.png)
+Parallelization is effective when the divided subtasks can be parallelized for speed, or when multiple perspectives or attempts are needed for higher confidence results. For complex tasks with multiple considerations, LLMs generally perform better when each consideration is handled by a separate LLM call, allowing focused attention on each specific aspect.
+![alt text](/assets/image-3.png)
 
 ### Workflow: Orchestrator-workers 
-![alt text](image-4.png)
+This workflow is well-suited for complex tasks where you can’t predict the subtasks needed (in coding, for example, the number of files that need to be changed and the nature of the change in each file likely depend on the task). Whereas it’s topographically similar, the key difference from parallelization is its flexibility—subtasks aren't pre-defined, but determined by the orchestrator based on the specific input.
+
+![alt text](/assets/image-4.png)
 
 
 ### Workflow: Evaluator-optimizer 
-![alt text](image-5.png)
+This workflow is particularly effective when we have clear evaluation criteria, and when iterative refinement provides measurable value. The two signs of good fit are, first, that LLM responses can be demonstrably improved when a human articulates their feedback; and second, that the LLM can provide such feedback. This is analogous to the iterative writing process a human writer might go through when producing a polished document.
+![alt text](/assets/image-5.png)
 
 ## Agents 
 Agents are typically just LLMs using tools based on environmental feedback in a loop. 
 
-![alt text](image-6.png)
+![alt text](/assets/image-6.png)
 
 [via](https://www.anthropic.com/research/building-effective-agents)

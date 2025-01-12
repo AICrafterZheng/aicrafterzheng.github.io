@@ -16,7 +16,7 @@ MCP addresses this challenge. It provides a universal, open standard for connect
 ## General architecture
 MCP enables developers to build secure, two-way connections between their data sources and AI-powered tools. The architecture is straightforward: developers can either expose their data through MCP servers or build AI applications (MCP clients) that connect to these servers.
 
-![alt text](mcp.png)
+![alt text](/assets/mcp.png)
 
 - **MCP Hosts**: Programs like Claude Desktop, IDEs, or AI tools that want to access data through MCP
 - **MCP Clients**: Protocol clients that maintain 1:1 connections with servers
