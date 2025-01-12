@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Playwright vs Puppeteer vs Selenium"
+title: "What's Model Context Protocol (MCP)"
 date:   2025-01-12 07:22:53 -0700
 categories: [MCP]
 ---
