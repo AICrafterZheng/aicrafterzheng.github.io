@@ -170,5 +170,6 @@ import { chromium } from 'playwright';
   // Close the browser
   await browser.close();
 })().catch((error) => console.error(error.message));
-````
+```
+
 As you can see, the playwright code is more straightforward than any other framework.
