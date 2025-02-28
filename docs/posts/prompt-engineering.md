@@ -123,7 +123,7 @@ Sentiment:
 ```
 
 ## Few-Shot
-Hands-on notebook: [Few-Shot_Prompting.ipynb](./notebooks/1.Few-Shot_Prompting.ipynb)  
+Hands-on notebook: [Few-Shot_Prompting.ipynb](https://github.com/AICrafterZheng/aicrafterzheng.github.io/blob/main/docs/posts/notebooks/1.Few-Shot_Prompting.ipynb)  
 
 You might also encounter the phrase "n-shot" or "one-shot". The number of "shots" refers to how many examples are used within the prompt.
 
@@ -141,7 +141,7 @@ You might also encounter the phrase "n-shot" or "one-shot". The number of "shots
 
 
 ## Chain of thought / Let LLM Think
-Hands-on notebook: [Chain_of_Thought.ipynb](./notebooks/2.Chain_of_Thought.ipynb)  
+Hands-on notebook: [Chain_of_Thought.ipynb](https://github.com/AICrafterZheng/aicrafterzheng.github.io/blob/main/docs/posts/notebooks/3.Chain_of_Thought.ipynb)  
 
 Giving LLM space to think can dramatically improve its performance. This technique, known as chain of thought (CoT) prompting, encourages LLM to break down problems step-by-step, leading to more accurate and nuanced outputs.
 ​
@@ -386,7 +386,7 @@ When working with complex tasks, LLM can sometimes drop the ball if you try to h
 - Verification loops: Generate content → Review → Refine → Re-review.
 
 ### 12. Tool use (function calling)
-Hands-on notebook: [Tool_Use_Function-Calling.ipynb](./notebooks/4.Tool_Use_Function-Calling.ipynb)   
+Hands-on notebook: [Tool_Use_Function-Calling.ipynb](https://github.com/AICrafterZheng/aicrafterzheng.github.io/blob/main/docs/posts/notebooks/4.Tool_Use_Function-Calling.ipynb)   
 
 Function calling provides a powerful and flexible way for LLMs to interface with your code or external services, and has two primary use cases:
 
@@ -394,7 +394,7 @@ Function calling provides a powerful and flexible way for LLMs to interface with
 - Taking Action	Perform actions like submitting a form, calling APIs, modifying application state (UI/frontend or backend), or taking agentic workflow actions (like handing off the conversation).
 
 ### 13. Increse output consistency (JSON mode/Structured Output)
-Hands-on notebook: [Structured_Output_JOSN-Mode.ipynb](./notebooks/3.Structured_Output_JOSN-Mode.ipynb)  
+Hands-on notebook: [Structured_Output_JOSN-Mode.ipynb](https://github.com/AICrafterZheng/aicrafterzheng.github.io/blob/main/docs/posts/notebooks/2.Structured_Output_JOSN-Mode.ipynb)  
 
 Structured Outputs is a feature that ensures the model will always generate responses that adhere to your supplied JSON Schema, so you don't need to worry about the model omitting a required key, or hallucinating an invalid enum value.
 
@@ -462,7 +462,7 @@ Generating tokens is almost always the highest latency step when using an LLM: a
 5. Leverage streaming, make your users wait less.  
 Streaming is a feature that allows the model to start sending back its response before the full output is complete. 
 ### 15. Avoiding hallucinations 
-Hands-on notebook: [Avoiding_Hallucinations.ipynb](./notebooks/5.Avoiding_Hallucinations.ipynb)
+Hands-on notebook: [Avoiding_Hallucinations.ipynb](https://github.com/AICrafterZheng/aicrafterzheng.github.io/blob/main/docs/posts/notebooks/5.Avoiding_Hallucinations.ipynb)
 
 #### Basic hallucination minimization strategies:
 - Allow LLM to say “I don’t know”.
@@ -577,7 +577,7 @@ Sometimes it can be hard to tell whether a change — e.g., a new instruction or
 
 
 ## Prompt Generator
-Hands-on notebook: [Prompt_Generation.ipynb](./notebooks/Prompt_Generation.ipynb)
+Hands-on notebook: [Prompt_Generation.ipynb](https://github.com/AICrafterZheng/aicrafterzheng.github.io/blob/main/docs/posts/notebooks/Prompt_Generation.ipynb)
 
 - https://ai.azure.com/  
 ![](./img/azure_ai_foundry_prompt_generator.png)

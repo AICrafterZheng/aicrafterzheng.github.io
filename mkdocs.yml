@@ -112,14 +112,14 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
 nav:
-  # - Home: 
-  #   - Introductions: 'index.md'
-  - Home:
-    - "index.md"
+  - Home: 
+    - Introductions: 'index.md'
+  # - Home:
+  #   - "index.md"
 plugins:
   - social
   - rss:
-      match_path: "writing/posts/.*"
+      match_path: "posts/.*"
       skip_ci_warning: true
   - search:
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
