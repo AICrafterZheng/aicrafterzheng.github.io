@@ -1,5 +1,5 @@
 site_name: Danny Zheng
-site_url: https://aicrafter.github.io
+site_url: https://aicrafterzheng.github.io
 site_description: >-
   Danny's Share.
 repo_name: AICrafterZheng/aicrafterzheng.github.io
@@ -115,7 +115,7 @@ nav:
   # - Home: 
   #   - Introductions: 'index.md'
   - Home:
-    - "writing/index.md"
+    - "index.md"
 plugins:
   - social
   - rss:
@@ -134,9 +134,9 @@ plugins:
             show_bases: true
   - blog:
       enabled: !ENV CI
-      blog_dir: writing
+      blog_dir: ./
       blog_toc: true
-      post_dir: writing/posts
+      post_dir: posts
       post_date_format: yyyy/MM/dd
       post_url_format: "{date}/{slug}"
       authors_file: "{blog}/.authors.yml"
