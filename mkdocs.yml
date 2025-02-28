@@ -1,9 +1,9 @@
 site_name: Danny Zheng
-site_url: https://dannyzheng.me
+site_url: https://aicrafter.github.io
 site_description: >-
   Danny's Share.
-repo_name: blog
-repo_url: https://github.com/AICrafterZheng/zheng-share
+repo_name: AICrafterZheng/aicrafterzheng.github.io
+repo_url: https://github.com/AICrafterZheng/aicrafterzheng.github.io
 edit_uri: edit/main/docs/
 copyright: Copyright &copy; 2025 Danny Zheng
 theme:
