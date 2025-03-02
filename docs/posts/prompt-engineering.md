@@ -1,6 +1,6 @@
 ---
 title: Prompt Engineering
-date: 2025-01-29
+date: 2025-02-21
 categories:
   - "AI Engineering"
   - "Prompt Engineering"
@@ -32,38 +32,43 @@ authors:
 Prompt engineering is about "communicating" with LLM in a way that maximizes the model's understanding and performance on a given task. At its core, prompt engineering involves designing, refining, and optimizing the text inputs (prompts) given to models to elicit accurate, relevant, and useful responses.
 <!-- more -->
 ## [Why prompt engineering matters?](https://www.microsoft.com/en-us/research/blog/the-power-of-prompting/)
+
 * **Enhancing AI capabilities:** Well-engineered prompts can dramatically improve an AI's performance, enabling it to tackle complex tasks with greater accuracy and efficiency.
 * **Bridging the gap between human intent and AI output:** Prompt engineering helps translate human objectives into language that AI models can effectively interpret and act upon.
 * **Optimizing resource usage:** Skilled prompt engineering can reduce token usage, lowering costs and improving response times in production environments.
 
+### A couple of examples to show how prompt engineering can enhance the performance of LLM.
+#### 1. Medprompt ([a prompting technique](https://arxiv.org/pdf/2311.16452)) enhances the performance of GPT-4: 
 ![](./img/Medqa-comp.png)
+<p align="center"><em>Response accuracy increases significantly when applying more advanced prompt engineering techniques.</em></p>
 
-(The illustration was from a Microsoft study: [Can Generalist Foundation Models Outcompete Special-Purpose Tuning? Case Study in Medicine](https://arxiv.org/pdf/2311.16452))
+[Medprompt](https://arxiv.org/pdf/2311.16452) includes three major prompting techniques:
 
-[Medprompt](https://arxiv.org/pdf/2311.16452) includes three major techniques:
- - Dynamic few-shot selection.
+ - Dynamic few-shot selection: instead of using static few-shot examples, Medprompt selects few-shot examples dynamically based on the question.
  - Self-generated chain of thought.
  - Choice shuffle ensembling: performs choice shuffle and self-consistency prompting.
 
+We will explore Few-Shot, Chain of Thought, and Self-Consistency in the following sections.
 
-### Enhance the performance of GPT-4 to compete with fine-tuned models.
+#### Medprompt enhances the performance of GPT-4 to compete with fine-tuned models.
  - While fine-tuning can boost performance, the process can be expensive. Fine-tuning often requires experts or professionally labeled datasets (e.g., via top clinicians in the MedPaLM project) and then computing model parameter updates. The process can be resource-intensive and cost-prohibitive, making the approach a difficult challenge for many small and medium-sized organizations. 
 
- - The Medprompt shows GPT-4’s ability to compete a leading model that was fine-tuned specifically for medical applications, on the same benchmarks and by a significant margin. 
 ![](./img/medprompt_v1.png)
+<p align="center"><em>The Medprompt shows GPT-4’s ability to compete a leading model that was fine-tuned specifically for medical applications, on the same benchmarks and by a significant margin.</em></p>
 
-### Enhance the performance of lower-tier models, such as GPT-3.5.  
+### 2. Boosting Lower-Tier Models with Effective Prompting
 By wraping in an **iterative agent workflow**, GPT-3.5 achieves up to 95.1% of GPT-4 on tasks, like, content summarization and translation. For example, we can ask the LLM to iterate over a document many times: (from [Andrew Ng's post](https://www.deeplearning.ai/the-batch/how-agents-can-improve-llm-performance/?ref=dl-staging-website.ghost.io) & - [What's next for AI agentic workflows ft. Andrew Ng of AI Fund - 2024](https://www.youtube.com/watch?v=sal78ACtGTc)
 ) 
+
 - Plan an outline.
 - Write a first draft.
 - Read over the first draft to spot unjustified arguments or extraneous information.
 - Revise the draft taking into account any weaknesses spotted.
 
-#### Why not always use the most advanced models?
-- Cost
-- Speed
-- Availability: The advanced model might not be available in certain scenarios—for example, on edge devices. 
+### You may ask, why not always use the most advanced models?
+- Cost: The advanced models are more expensive to run.
+- Speed: The advanced models are slower to generate responses.
+- Availability: The advanced models might not be available in certain scenarios—for example, on edge devices. 
 
 ## Basics of prompt engineering
 A prompt contains any of the following elements:​
@@ -95,12 +100,12 @@ Understanding this lifecycle is crucial for developing effective prompts and tro
 ## [Inference Parameters](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference#request-body)
 
 - **System prompt:** A system prompt is a way to **provide role playing, context, instructions, and few-shot to LLM**, while putting a question or task in the "User" turn. 
-  - Higher priority: System messages define the primary behavior and are less likely to be overridden by a later user message.
-  - Consistency: If your application always needs certain examples or guidelines, placing them in the system prompt ensures they remain in effect throughout the conversation.
+    - **Higher priority:** System messages define the primary behavior and are less likely to be overridden by a later user message.
+    - **Consistency:** If your application always needs certain examples or guidelines, placing them in the system prompt ensures they remain in effect throughout the conversation.
 
 - **Max tokens:** Set a limit on the number of tokens per model response. 
-  - Set appropriate output limits. Use the max_tokens parameter to set a hard limit on the maximum length of the generated response. This prevents LLM from generating overly long outputs, which reduces latency.
-  - Note: Some LLMs' (e.g. Phi) max tokens = input tokens + output tokens, please be aware. 
+    - Set appropriate output limits. Use the max_tokens parameter to set a hard limit on the maximum length of the generated response. This prevents LLM from generating overly long outputs, which reduces latency.
+    - Note: Some LLMs' (e.g. Phi) max tokens = input tokens + output tokens, please be aware. 
   >  One token is roughly 4 characters for typical English text.
 
 - **Temperature:** Controls randomness. Lowering the temperature means that the model will produce more focused and deterministic responses. Increasing the temperature will result in more diverse and creative responses. Try adjusting temperature or Top P but not both.
@@ -108,10 +113,10 @@ Understanding this lifecycle is crucial for developing effective prompts and tro
 - **Top P:** Similar to temperature, this controls randomness but uses a different method. Lowering Top P will narrow the model’s token selection to likelier tokens. Increasing Top P will let the model choose from tokens with both high and low likelihood. Try adjusting temperature or Top P but not both.
 
 - **Frequency penalty:**  This decreases the likelihood of repeating the exact same text in a response.
-  - OpenAI models' range: -2.0 to 2.0, default value is 0.
+    - OpenAI models' range: -2.0 to 2.0, default value is 0.
 
 - **Presence penalty:** This increases the likelihood of introducing new topics in a response.
-  - OpenAI models' range: -2.0 to 2.0, default value is 0.
+    - OpenAI models' range: -2.0 to 2.0, default value is 0.
 
 - **Stop sequence:** Make the model end its response at a desired point. The model response will end before the specified sequence, so it won't contain the stop sequence text. For ChatGPT, using <|im_end|> ensures that the model response doesn't generate a follow-up user query. You can include as many as four stop sequences.
 
@@ -123,7 +128,6 @@ Sentiment:
 ```
 
 ## Few-Shot
-Hands-on notebook: [Few-Shot_Prompting.ipynb](https://github.com/AICrafterZheng/aicrafterzheng.github.io/blob/main/docs/posts/notebooks/1.Few-Shot_Prompting.ipynb)  
 
 You might also encounter the phrase "n-shot" or "one-shot". The number of "shots" refers to how many examples are used within the prompt.
 
@@ -138,6 +142,28 @@ You might also encounter the phrase "n-shot" or "one-shot". The number of "shots
 - **Relevant:** Your examples mirror your actual use case.
 - **Diverse:** Your examples cover edge cases and potential challenges, and vary enough that LLM doesn't inadvertently pick up on unintended patterns.
 - **Clear:** Your examples are wrapped in <example> tags (if multiple, nested within <examples> tags) for structure.
+
+No Examples:
+```
+Analyze this customer feedback and categorize the issues. Use these categories: UI/UX, Performance, Feature Request, Integration, Pricing, and Other. Also rate the sentiment (Positive/Neutral/Negative) and priority (High/Medium/Low).
+
+Here is the feedback: {{FEEDBACK}}
+```
+With Examples:
+```
+Our CS team is overwhelmed with unstructured feedback. Your task is to analyze feedback and categorize issues for our product and engineering teams. Use these categories: UI/UX, Performance, Feature Request, Integration, Pricing, and Other. Also rate the sentiment (Positive/Neutral/Negative) and priority (High/Medium/Low). Here is an example:
+
+<example>
+Input: The new dashboard is a mess! It takes forever to load, and I can’t find the export button. Fix this ASAP!
+Category: UI/UX, Performance
+Sentiment: Negative
+Priority: High
+</example>
+
+Now, analyze this feedback: {{FEEDBACK}}
+```
+
+>Hands-on notebook: [Few-Shot_Prompting.ipynb](https://github.com/AICrafterZheng/aicrafterzheng.github.io/blob/main/docs/posts/notebooks/1.Few-Shot_Prompting.ipynb)  
 
 
 ## Chain of thought / Let LLM Think
@@ -158,11 +184,57 @@ Not all tasks require in-depth thinking. Use CoT judiciously to ensure the right
 #### How to prompt for thinking
 > CoT tip: Always have LLM output its thinking. Without outputting its thought process, no thinking occurs!
 
+- Basic prompt: Include “Think step-by-step” in your prompt.
+    - Lacks guidance on how to think (which is especially not ideal if a task is very specific to your app, use case, or organization)
+    ```
+    Draft personalized emails to donors asking for contributions to this year’s Care for Kids program.
+
+    Program information:
+    <program>{{PROGRAM_DETAILS}}
+    </program>
+
+    Donor information:
+    <donor>{{DONOR_DETAILS}}
+    </donor>
+
+    Think step-by-step before you write the email.
+    ```
+- Guided prompt: Outline specific steps for LLM to follow in its thinking process.
+    - Lacks structuring to make it easy to strip out and separate the answer from the thinking.
+    ```
+    Draft personalized emails to donors asking for contributions to this year’s Care for Kids program.
+
+    Program information:
+    <program>{{PROGRAM_DETAILS}}
+    </program>
+
+    Donor information:
+    <donor>{{DONOR_DETAILS}}
+    </donor>
+
+    Think before you write the email. First, think through what messaging might appeal to this donor given their donation history and which campaigns they’ve supported in the past. Then, think through what aspects of the Care for Kids program would appeal to them, given their history. Finally, write the personalized donor email using your analysis.
+    ```
+- Structured prompt: Use XML tags like <thinking> and <answer> to separate reasoning from the final answer.
+    ```
+    Draft personalized emails to donors asking for contributions to this year’s Care for Kids program.
+
+    Program information:
+    <program>{{PROGRAM_DETAILS}}
+    </program>
+
+    Donor information:
+    <donor>{{DONOR_DETAILS}}
+    </donor>
+
+    Think before you write the email in <thinking> tags. First, think through what messaging might appeal to this donor given their donation history and which campaigns they’ve supported in the past. Then, think through what aspects of the Care for Kids program would appeal to them, given their history. Finally, write the personalized donor email in <email> tags, using your analysis.
+    ```
+> Use code (e.g. extract from `<answer>` tags) to extract the desired answer from the LLM's response
+
 ## Self-Consistency
 
 Proposed by [Wang et al. (2022)](https://arxiv.org/abs/2203.11171), self-consistency aims "to replace the naive greedy decoding used in chain-of-thought prompting". The idea is to sample multiple, diverse reasoning paths through few-shot CoT, and use the generations to select the most consistent answer. This helps to boost the performance of CoT prompting on tasks involving arithmetic and commonsense reasoning.
 
-## More [prompting techiques](https://www.promptingguide.ai/techniques/tot)
+## More [prompting techiques](https://www.promptingguide.ai/techniques/tot) if you are interested.
 
 - [Tree of Thought](https://www.promptingguide.ai/techniques/tot)
 - [ReAct](https://www.promptingguide.ai/techniques/react)
@@ -215,7 +287,6 @@ Data to process: {{FEEDBACK_DATA}}
 - **Enhanced accuracy:** In complex scenarios like legal analysis or financial modeling, role prompting can significantly boost LLM’s performance.
 - **Tailored tone:** Whether you need a CFO’s brevity or a copywriter’s flair, role prompting adjusts LLM’s communication style.
 - **Improved focus:** By setting the role context, LLM stays more within the bounds of your task’s specific requirements.
-
 >Role prompting tip: Experiment with roles! A data scientist might see different insights than a marketing strategist for the same data. A data scientist specializing in customer insight analysis for Fortune 500 companies might yield different results still!
 
 #### Financial analysis without role prompting. 
@@ -393,6 +464,45 @@ Function calling provides a powerful and flexible way for LLMs to interface with
 - Fetching Data	Retrieve up-to-date information to incorporate into the model's response (RAG). Useful for searching knowledge bases and retrieving specific data from APIs (e.g. current weather data).
 - Taking Action	Perform actions like submitting a form, calling APIs, modifying application state (UI/frontend or backend), or taking agentic workflow actions (like handing off the conversation).
 
+When you define a function as part of your request, the details are injected into the system message using specific syntax that the model has been trained on. This means that functions consume tokens in your prompt and that you can apply prompt engineering techniques to optimize the performance of your function calls. The model uses the full context of the prompt to determine if a function should be called including function definition, the system message, and the user messages.
+
+### Improving quality and reliability
+If the model isn't calling your function when or how you expect, there are a few things you can try to improve the quality.
+
+### 1. Provide more details in your function definition
+It's important that you provide a meaningful description of the function and provide descriptions for any parameter that might not be obvious to the model. For example, in the description for the location parameter, you could include extra details and examples on the format of the location.
+```json
+"location": {
+    "type": "string",
+    "description": "The location of the hotel. The location should include the city and the state's abbreviation (i.e. Seattle, WA or Miami, FL)"
+}
+```
+
+
+### 2. Provide more context in the system message
+The system message can also be used to provide more context to the model. For example, if you have a function called search_hotels you could include a system message like the following to instruct the model to call the function when a user asks for help with finding a hotel.
+
+```json
+{"role": "system", "content": "You're an AI assistant designed to help users search for hotels. When a user asks for help finding a hotel, you should call the search_hotels function."}
+```
+
+### 3. Instruct the model to ask clarifying questions
+In some cases, you want to instruct the model to ask clarifying questions to prevent making assumptions about what values to use with functions. For example, with search_hotels you would want the model to ask for clarification if the user request didn't include details on location. To instruct the model to ask a clarifying question, you could include content like the next example in your system message.
+```json
+{"role": "system", "content": "Don't make assumptions about what values to use with functions. Ask for clarification if a user request is ambiguous."}
+```
+
+### 4. Offload the burden from the model and use code where possible.
+
+- Don't make the model fill arguments you already know. 
+- Combine functions that are always called in sequence. For example, if you always call `mark_location()` after `query_location()`, just move the marking logic into the query function call.
+
+### 5. Keep the number of functions small for higher accuracy.
+
+- **Evaluate your performance** with different numbers of functions.
+- **Aim for fewer than 20 functions** at any one time, though this is just a soft suggestion.
+
+
 ### 13. Increse output consistency (JSON mode/Structured Output)
 Hands-on notebook: [Structured_Output_JOSN-Mode.ipynb](https://github.com/AICrafterZheng/aicrafterzheng.github.io/blob/main/docs/posts/notebooks/2.Structured_Output_JOSN-Mode.ipynb)  
 
@@ -403,6 +513,51 @@ Some benefits of Structured Outputs include:
 - **Reliable type-safety:** No need to validate or retry incorrectly formatted responses
 - **Explicit refusals:** Safety-based model refusals are now programmatically detectable
 - **Simpler prompting:** No need for strongly worded prompts to achieve consistent formatting
+
+### **4 Effective Ways to Generate Structured Outputs**  
+
+When working with LLMs, ensuring **structured outputs** (such as JSON) can improve reliability and make parsing easier. Here are four key methods to achieve this:  
+
+1. **Use Few-Shot Examples**  
+    - Provide examples of the desired **JSON output** directly in the prompt to guide the model.  
+    - Particularly useful for models **without native JSON mode or function calling** support.  
+
+2. **Leverage [JSON Mode](https://platform.openai.com/docs/guides/structured-outputs#json-mode)**  
+    - If supported, enable JSON mode to ensure outputs are **strictly formatted** as JSON.  
+
+3. **Utilize [Function Calling](https://platform.openai.com/docs/guides/function-calling)**  
+    - Define structured functions that the model can call, ensuring outputs adhere to a predefined schema.  
+
+4. **OpenAI’s new [Structured Outputs](https://platform.openai.com/docs/guides/structured-outputs) feature**  
+    - OpenAI provides tools for generating well-structured responses, reducing errors in format consistency.  
+
+### When to use Structured Outputs via function calling vs via response_format
+Structured Outputs is available in two forms in the OpenAI API:
+
+- When using function calling
+- When using a json_schema response format
+
+Function calling is useful when you are building an application that bridges the models and functionality of your application.
+
+For example, you can give the model access to functions that query a database in order to build an AI assistant that can help users with their orders, or functions that can interact with the UI.
+
+Conversely, Structured Outputs via response_format are more suitable when you want to indicate a structured schema for use when the model responds to the user, rather than when the model calls a tool.
+
+Put simply:
+
+If you are connecting the model to tools, functions, data, etc. in your system, then you should use function calling.
+
+If you want to structure the model's output when it responds to the user, then you should use a structured response_format.
+
+
+### Structured Outputs vs JSON mode
+Structured Outputs is the evolution of JSON mode. While both ensure valid JSON is produced, only **Structured Outputs ensure schema adherance**. 
+
+**Always using Structured Outputs instead of JSON mode when possible.**
+
+However, Structured Outputs with response_format: {type: "json_schema", ...} is only supported with the gpt-4o-mini, gpt-4o-mini-2024-07-18, and gpt-4o-2024-08-06 model snapshots and later.
+
+
 
 ### 14. Reducing Latency
 Latency can be influenced by various factors, such as the size of the model, the complexity of the prompt, and the underlying infrastucture supporting the model and point of interaction.
@@ -461,11 +616,11 @@ Generating tokens is almost always the highest latency step when using an LLM: a
     ```
 5. Leverage streaming, make your users wait less.  
 Streaming is a feature that allows the model to start sending back its response before the full output is complete. 
+
 ### 15. Avoiding hallucinations 
 Hands-on notebook: [Avoiding_Hallucinations.ipynb](https://github.com/AICrafterZheng/aicrafterzheng.github.io/blob/main/docs/posts/notebooks/5.Avoiding_Hallucinations.ipynb)
 
-#### Basic hallucination minimization strategies:
-- Allow LLM to say “I don’t know”.
+####1. Allow LLM to say “I don’t know”.
 <div style="font-family: monospace; background:#F5F7FA ; font-size: 14.08px; padding: 10px;">
 As our M&A advisor, analyze this report on the potential acquisition of AcmeCo by ExampleCorp.
 <report>
@@ -475,19 +630,19 @@ As our M&A advisor, analyze this report on the potential acquisition of AcmeCo b
 Focus on financial projections, integration risks, and regulatory hurdles. If you’re unsure about any aspect or if the report lacks necessary information, say <span style="color: green;">“I don’t have enough information to confidently assess this.”</span>
 </div>
 
-- Use direct quotes for factual grounding: 
-  - For tasks involving long documents (>20K tokens), ask LLM to extract word-for-word quotes first before performing its task. This grounds its responses in the actual text, reducing hallucinations.
+#### 2. Use direct quotes for factual grounding: 
+- For tasks involving long documents (>20K tokens), ask LLM to extract word-for-word quotes first before performing its task. This grounds its responses in the actual text, reducing hallucinations.
 <div style="font-family: monospace; background:#F5F7FA ; font-size: 14.08px; padding: 10px;">
 As our Data Protection Officer, review this updated privacy policy for GDPR and CCPA compliance.
 <policy>
 {{POLICY}}
 </policy>
-
-1. Extract exact quotes from the policy that are most relevant to GDPR and CCPA compliance. If you can’t find relevant quotes, state “No relevant quotes found.”
-
+Extract exact quotes from the policy that are most relevant to GDPR and CCPA compliance. If you can’t find relevant quotes, state “No relevant quotes found.”
 2. <span style="color: green;">Use the quotes to analyze the compliance of these policy sections, referencing the quotes by number. Only base your analysis on the extracted quotes.</span>
 </div>
-- Verify with citations: 
+
+
+#### 3. Verify with citations: 
 Make LLM’s response auditable by having it cite quotes and sources for each of its claims. You can also have LLM verify each claim by finding a supporting quote after it generates a response. If it can’t find a quote, it must retract the claim.
 <div style="font-family: monospace; background:#F5F7FA ; font-size: 14.08px ; padding: 10px;">
 Draft a press release for our new cybersecurity product, AcmeSecurity Pro, using only information from these product briefs and market reports.
@@ -511,84 +666,105 @@ After drafting, review each claim in your press release. For each claim, find a 
 ### 16. Split complex tasks into simpler subtasks
 
 Complex tasks tend to have higher error rates than simpler tasks. Furthermore, complex tasks can often be re-defined as a workflow of simpler tasks in which the outputs of earlier tasks are used to construct the inputs to later tasks.
+
   - Use intent classification to identify the most relevant instructions for a user query
   - For dialogue applications that require very long conversations, summarize or filter previous dialogue.
   - Summarize long documents piecewise and construct a full summary recursively.
 
 
 ### 17. Test changes systematically
-Sometimes it can be hard to tell whether a change — e.g., a new instruction or a new design — makes your system better or worse. Looking at a few examples may hint at which is better, but with small sample sizes it can be hard to distinguish between a true improvement or random luck. Maybe the change helps performance on some inputs, but hurts performance on others.
+Sometimes it can be hard to tell whether a change — e.g., a new instruction or a new design — makes your system better or worse.  
+Looking at a few examples may hint at which is better, but with small sample sizes it can be hard to distinguish between a true improvement or random luck. Maybe the change helps performance on some inputs, but hurts performance on others.
+
   - Evaluate model outputs with reference to gold-standard answers
 
 #### Prompt Eval Tools
+- [Anthropic](https://docs.anthropic.com/en/docs/test-and-evaluate/eval-tool)
+- [OpenAI](https://github.com/openai/evals)
 - [How to evaluate generative AI models and applications with Azure AI Foundry](https://learn.microsoft.com/en-us/azure/ai-studio/how-to/evaluate-generative-ai-app)
-- https://docs.anthropic.com/en/docs/test-and-evaluate/eval-tool
-- https://github.com/openai/evals
 
 
 
 ## Common Misconceptions About Prompts
 
-### A prompt is static; write it once and you’re done. ❌
+### 1. A prompt is static; write it once and you’re done. ❌
 
 - **Misconception:** Some think writing a prompt is like writing an article—once you finish, it’s done, and no further changes are necessary.
 - ✅ **Reality:** A prompt is actually a complex programming method, requiring the same care we apply to code, such as version control and experiment tracking. Crafting a good prompt involves careful design and iteration, ensuring the model accurately understands the task and produces the desired output. Prompt engineering is an iterative process involving continuous testing, modification, and optimization.
 
-### Prompts require perfect grammar and punctuation. ❌
+### 2. Prompts require perfect grammar and punctuation. ❌
 
 - **Misconception:** People assume a model only understands a prompt if it’s written in flawless grammar and punctuation.
 - ✅ **Reality:** While attention to detail is important, the model can typically handle prompts with typos or imperfect grammar. Conceptual clarity matters more than perfect grammar. Although it’s good to correct errors in the final prompt, it’s fine to have minor flaws during the iterative process.
 
-### You have to ‘trick’ the model into working. ❌
+### 3. You have to ‘trick’ the model into working. ❌
 
 - **Misconception:** Some believe the model is “dumb” and needs tricks or “lies” to get the job done, such as saying " I will tip you $500".
 - **Reality:** Models are quite capable. You don’t need to “trick” them. Rather, you should respect the model and provide clear, accurate information so it understands your goal. Simply describe your task directly, rather than using metaphors or a similar task to guide the model.
 
-###  Prompt engineering is all about crafting a perfect instruction. ❌
+### 4. Prompt engineering is all about crafting a perfect instruction. ❌
 
 - **Misconception:** Some think prompt engineering is just finding the perfect instruction, spending large amounts of time agonizing over every single word.
 - ✅ **Reality:** While precise instructions do matter, **it’s even more crucial to understand how the model operates and to learn from reading its outputs**. Understanding the model’s reasoning—how it processes different inputs—matters more than chasing a so-called perfect instruction. A good prompt engineer can interpret signals from the model’s output and grasp its reasoning process, not just look at whether the result is correct.
 
-### Prompt engineering is purely about writing skill. ❌
+### 5. Prompt engineering is purely about writing skill. ❌
 
 - **Misconception:** Some believe the main skill in prompt engineering is writing proficiency, so someone who writes well will naturally excel at it.
 - ✅ **Reality:** Although strong writing skills are necessary, they’re not the core capability. **Good prompt engineers need an experimental mindset, systematic thinking, problem-solving skills, and insight into how the model “thinks.” Iteration and testing matter more than writing ability alone.**
 
-### More examples always produce better prompts. ❌
+### 6. More examples always produce better prompts. ❌
 
 - **Misconception:** People may think providing a large number of examples is the only way to improve the model’s performance.
 - ✅ **Reality:** While examples can help guide the model, **having too many can limit creativity and variety**. In research contexts, using illustrative rather than highly specific examples can be more effective, because it encourages the model to focus on the underlying task rather than just copying examples.
 
-### You should avoid giving the model too much information. ❌
+### 7. You should avoid giving the model too much information. ❌
 
 - **Misconception:** Some worry giving the model too many details will confuse it, so they keep the instructions minimal and hide complexity.
 - ✅ **Reality:** As models become more capable, they can handle more information and context. **You should trust the model by giving it enough information to better understand your task.**
 
 
-### Role-playing prompts always work. ❌
+### 8. Role-playing prompts always work. ❌
 
 - **Misconception:** Some believe that giving the model a specific role (e.g. “You are a teacher”) automatically boosts its performance.
 - ✅ **Reality:** Role-playing prompts may help in certain scenarios but aren’t always necessary. Often, simply stating your task is more effective. **As models improve, it may be better to give a direct task description rather than assigning a fake identity.**
 
-### Once you find a good prompt, it’ll work forever. ❌
+### 9. Once you find a good prompt, it’ll work forever. ❌
 
 - **Misconception:** Some believe once you find an effective prompt, you can reuse it indefinitely without further changes.
 - ✅ **Reality:** As models keep improving, prompts that used to work can become obsolete. **Some prompting techniques might get “baked into” the model’s training, making them unnecessary later. You have to keep learning and adapting to changes in the model.**
 
 
-## Prompt Generator
-Hands-on notebook: [Prompt_Generation.ipynb](https://github.com/AICrafterZheng/aicrafterzheng.github.io/blob/main/docs/posts/notebooks/Prompt_Generation.ipynb)
+## Prompt Generator Tools
 
-- https://ai.azure.com/  
-![](./img/azure_ai_foundry_prompt_generator.png)
-- https://console.anthropic.com/dashboard  
+Now that you've explored various prompt engineering techniques and debunked common misconceptions, you might be wondering—**how can you generate high-quality prompts effortlessly?**
 
-![](./img/anthropic_prompt_generator.png)
+Following the detailed steps above can sometimes feel overwhelming, but don't worry! To make things easier, here are some prompt generator tools that can streamline the process and help you craft effective prompts with ease.
 
-- https://www.microsoft365.com/chat/?auth=2&home=1  
-![](./img/prompt_coach.png)
 
-## Reasoning Model (i.e. OpenAI o1)
+
+If you're looking for ways to streamline your prompt engineering workflow, here are some powerful tools that can help you craft and refine high-quality prompts effortlessly.  
+
+### **1. Anthropic**  
+**Anthropic** is my personal favorite. I use it frequently to **generate prompts** and **enhance existing ones** for better performance.  
+🔗 [Try it here](https://console.anthropic.com/dashboard)  
+
+![Anthropic Prompt Generator](./img/anthropic_prompt_generator.png)  
+
+### **2. Azure AI Foundry**  
+Microsoft's **Azure AI Foundry** provides robust AI-powered tools to assist with prompt generation and optimization, making it a great resource for AI developers.  
+🔗 [Try it here](https://ai.azure.com/)  
+
+![Azure AI Foundry](./img/azure_ai_foundry_prompt_generator.png)  
+
+### **3. Microsoft 365 Copilot**  
+**Microsoft 365 Copilot** can assist in generating contextual prompts directly within your workflow.  
+🔗 [Try it here](https://www.microsoft365.com/chat/?auth=2&home=1)  
+
+![Microsoft 365 Copilot](./img/prompt_coach.png)  
+
+> Hands-on notebook: [Prompt_Generation.ipynb](https://github.com/AICrafterZheng/aicrafterzheng.github.io/blob/main/docs/posts/notebooks/Prompt_Generation.ipynb)
+
+## Reasoning Model (i.e. OpenAI o1/DeepSeek R1)
 - o1 models think before they answer, producing a long internal chain of thought before responding to the user. 
 
 - How reasoning works  
@@ -606,6 +782,11 @@ These models perform best with straightforward prompts. Some prompt engineering 
 - **Try zero shot first, then few shot if needed:** Reasoning models often don't need few-shot examples to produce good results, so try to write prompts without examples first. If you have more complex requirements for your desired output, it may help to include a few examples of inputs and desired outputs in your prompt. Just ensure that the examples align very closely with your prompt instructions, as discrepancies between the two may produce poor results
 - **Limit additional context in retrieval-augmented generation (RAG):** When providing additional context or documents, include only the most relevant information to prevent the model from overcomplicating its response.
 
+**GPT-4o outputs the response right away**
 ![](./img/gpt-4o.png)
 
+**Reasoning model outputs the response with its internal reasoning process**
 ![](./img/resonning_model.png)
+
+Congratulations! You've made it through the entire prompt engineering guide. I hope you've found it helpful and informative. Happy prompting!
+
