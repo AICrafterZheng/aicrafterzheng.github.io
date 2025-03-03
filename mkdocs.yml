@@ -2,15 +2,15 @@ site_name: Danny Zheng
 site_url: https://dannyzheng.me
 site_description: >-
   Danny's Share.
-repo_name: AICrafterZheng/aicrafterzheng.github.io
-repo_url: https://github.com/AICrafterZheng/aicrafterzheng.github.io
+# repo_name: AICrafterZheng/aicrafterzheng.github.io
+# repo_url: https://github.com/AICrafterZheng/aicrafterzheng.github.io
 edit_uri: edit/main/docs/
 copyright: Copyright &copy; 2025 Danny Zheng
 theme:
   name: material
   custom_dir: overrides
   icon:
-    repo: fontawesome/brands/github
+    repo: false
     edit: material/pencil 
     view: material/eye
     theme:
