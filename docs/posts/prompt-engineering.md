@@ -37,7 +37,7 @@ Prompt engineering is about "communicating" with LLM in a way that maximizes the
 * **Bridging the gap between human intent and AI output:** Prompt engineering helps translate human objectives into language that AI models can effectively interpret and act upon.
 * **Optimizing resource usage:** Skilled prompt engineering can reduce token usage, lowering costs and improving response times in production environments.
 
-### Below are two examples to show how prompt engineering can enhance the performance of LLM.
+### Below are two examples illustrating how prompt engineering can significantly enhance the performance of large language models (LLMs).
 #### 1. Medprompt ([a prompting technique](https://arxiv.org/pdf/2311.16452)) enhances the performance of GPT-4: 
 ![](./img/Medqa-comp.png)
 <p align="center"><em>Response accuracy increases significantly when applying more advanced prompt engineering techniques.</em></p>
