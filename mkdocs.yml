@@ -158,3 +158,9 @@ extra_javascript:
   - javascripts/analytics.js
   - https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+docs_dir: docs
+site_dir: site
+
+extra_files:
+  - CNAME

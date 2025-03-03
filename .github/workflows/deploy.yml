@@ -25,4 +25,8 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: pip install -r requirements.txt
-      - run: mkdocs gh-deploy --force
+      - name: Configure CNAME
+        run: |
+          echo "dannyzheng.me" > docs/CNAME
+      - name: Build and deploy
+        run: mkdocs gh-deploy --force
