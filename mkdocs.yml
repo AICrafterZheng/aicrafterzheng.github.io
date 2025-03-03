@@ -119,6 +119,7 @@ nav:
 plugins:
   - social
   - rss:
+      enabled: true
       match_path: "posts/.*"
       skip_ci_warning: true
   - search:
