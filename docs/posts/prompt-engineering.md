@@ -21,12 +21,12 @@ authors:
 - [Inference Parameters](#inference-parameters)
 - [Zero-Shot](#zero-shot)
 - [Few-Shot](#few-shot)
-- [Chain of thought / Let LLM Think](#chain-of-thought--let-llm-think)
+- [Chain of thought](#chain-of-thought)
 - [Self-Consistency](#self-consistency)
 - [General Tips for Designing Prompts](#general-tips-for-designing-prompts)
 - [Common Misconceptions About Prompts](#common-misconceptions-about-prompts)
-- [Prompt Generator](#prompt-generator)
-- [Reasoning Model (i.e. OpenAI o1)](#reasoning-model-ie-openai-o1)
+- [Prompt Generator Tools](#prompt-generator-tools)
+- [Reasoning Model (i.e. OpenAI o1/DeepSeek R1)](#reasoning-model-ie-openai-o1deepseek-r1)
 
 ## What is prompt engineering?
 Prompt engineering is about "communicating" with LLM in a way that maximizes the model's understanding and performance on a given task. At its core, prompt engineering involves designing, refining, and optimizing the text inputs (prompts) given to models to elicit accurate, relevant, and useful responses.
@@ -166,7 +166,7 @@ Now, analyze this feedback: {{FEEDBACK}}
 >Hands-on notebook: [Few-Shot_Prompting.ipynb](https://github.com/AICrafterZheng/aicrafterzheng.github.io/blob/main/docs/posts/notebooks/1.Few-Shot_Prompting.ipynb)  
 
 
-## Chain of thought / Let LLM Think
+## Chain of thought
 Hands-on notebook: [Chain_of_Thought.ipynb](https://github.com/AICrafterZheng/aicrafterzheng.github.io/blob/main/docs/posts/notebooks/3.Chain_of_Thought.ipynb)  
 
 Giving LLM space to think can dramatically improve its performance. This technique, known as chain of thought (CoT) prompting, encourages LLM to break down problems step-by-step, leading to more accurate and nuanced outputs.
