@@ -37,20 +37,20 @@ Prompt engineering is about "communicating" with LLM in a way that maximizes the
 * **Bridging the gap between human intent and AI output:** Prompt engineering helps translate human objectives into language that AI models can effectively interpret and act upon.
 * **Optimizing resource usage:** Skilled prompt engineering can reduce token usage, lowering costs and improving response times in production environments.
 
-### Below are two examples illustrating how prompt engineering can significantly enhance the performance of large language models (LLMs).
-#### 1. Medprompt ([a prompting technique](https://arxiv.org/pdf/2311.16452)) enhances the performance of GPT-4: 
+Let's look at two examples that demonstrate how prompt engineering can significantly enhance the performance of large language models (LLMs)
+
+### 1. Medprompt ([a prompting technique from a study by Microsoft](https://arxiv.org/pdf/2311.16452)) enhances the performance of GPT-4: 
+- Dynamic few-shot selection: instead of using static few-shot examples, Medprompt selects few-shot examples dynamically based on the question.  
+- Self-generated chain of thought.  
+- Choice shuffle ensembling: performs choice shuffle and self-consistency prompting.  
+> We will explore Few-Shot, Chain of Thought, and Self-Consistency in the following sections.
+
 ![](./img/Medqa-comp.png)
 <p align="center"><em>Response accuracy increases significantly when applying more advanced prompt engineering techniques.</em></p>
 
-[Medprompt](https://arxiv.org/pdf/2311.16452) includes three major prompting techniques:
 
- - Dynamic few-shot selection: instead of using static few-shot examples, Medprompt selects few-shot examples dynamically based on the question.
- - Self-generated chain of thought.
- - Choice shuffle ensembling: performs choice shuffle and self-consistency prompting.
 
-We will explore Few-Shot, Chain of Thought, and Self-Consistency in the following sections.
-
-#### MedPrompt enhances the performance of GPT-4, allowing it to compete with fine-tuned models. (GPT-4 vs Fine-tuning)
+#### MedPrompt allows GPT-4 to compete with fine-tuned models. (GPT-4 vs Fine-tuning)
  - While fine-tuning can boost performance, the process can be expensive. Fine-tuning often requires experts or professionally labeled datasets (e.g., via top clinicians in the MedPaLM project) and then computing model parameter updates. The process can be resource-intensive and cost-prohibitive, making the approach a difficult challenge for many small and medium-sized organizations. 
 
 ![](./img/medprompt_v1.png)
@@ -65,7 +65,7 @@ By wraping in an **iterative agent workflow**, GPT-3.5 achieves up to 95.1% of G
 - Read over the first draft to spot unjustified arguments or extraneous information.
 - Revise the draft taking into account any weaknesses spotted.
 
-### You may ask, why not always use the most advanced models?
+#### You may ask, why not always use the most advanced models?
 - Cost: The advanced models are more expensive to run.
 - Speed: The advanced models are slower to generate responses.
 - Availability: The advanced models might not be available in certain scenarios—for example, on edge devices. 
@@ -805,7 +805,12 @@ Last but not least, let's quickly work through the reasoning model.
 
 Reasoning models think before they answer, producing a long internal chain of thought before responding to the user. 
 
-### Advice on reasoning model prompting
+### **How reasoning works**
+The o1 models introduce reasoning tokens. The models use these reasoning tokens to "think", **breaking down their understanding of the prompt and considering multiple approaches to generating a response.** After generating reasoning tokens, the model produces an answer as visible completion tokens, and discards the reasoning tokens from its context.
+
+Here is an example of a multi-step conversation between a user and an assistant. Input and output tokens from each step are carried over, while reasoning tokens are discarded.
+![](./img/reasoning_tokens.png)
+### **Advice on reasoning model prompting**
 These models perform best with straightforward prompts. Some prompt engineering techniques, like few-shot learning or instructing the model to "think step by step," may not enhance performance (and can sometimes hinder it). Here are some best practices:
 
 - **Keep prompts simple and direct:** The models excel at understanding and responding to brief, clear instructions without the need for extensive guidance.
@@ -816,7 +821,7 @@ These models perform best with straightforward prompts. Some prompt engineering 
 
 > As we observed in the previous sections, prompt engineering is an **iterative process**, and prompts should evolve alongside model advancements. The reasoning model demonstrates that a chain of thought is no longer necessary in the prompt.
 
-An example to illustrate the difference between the non-reasoning model and the reasoning model:  
+Below example illustrates the difference between the non-reasoning model and the reasoning model:  
 
 **Non-reasoning model outputs the response right away**
 ![](./img/gpt-4o.png)
