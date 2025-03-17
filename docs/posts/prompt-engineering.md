@@ -50,13 +50,13 @@ Prompt engineering is about "communicating" with LLM in a way that maximizes the
 
 We will explore Few-Shot, Chain of Thought, and Self-Consistency in the following sections.
 
-#### Medprompt enhances the performance of GPT-4 to compete with fine-tuned models.
+#### MedPrompt enhances the performance of GPT-4, allowing it to compete with fine-tuned models. (GPT-4 vs Fine-tuning)
  - While fine-tuning can boost performance, the process can be expensive. Fine-tuning often requires experts or professionally labeled datasets (e.g., via top clinicians in the MedPaLM project) and then computing model parameter updates. The process can be resource-intensive and cost-prohibitive, making the approach a difficult challenge for many small and medium-sized organizations. 
 
 ![](./img/medprompt_v1.png)
 <p align="center"><em>The Medprompt shows GPT-4’s ability to compete a leading model that was fine-tuned specifically for medical applications, on the same benchmarks and by a significant margin.</em></p>
 
-### 2. Boosting Lower-Tier Models with Effective Prompting
+### 2. Boosting Lower-Tier Models with Effective Prompting. (GPT-3.5 vs GPT-4)
 By wraping in an **iterative agent workflow**, GPT-3.5 achieves up to 95.1% of GPT-4 on tasks, like, content summarization and translation. For example, we can ask the LLM to iterate over a document many times: (from [Andrew Ng's post](https://www.deeplearning.ai/the-batch/how-agents-can-improve-llm-performance/?ref=dl-staging-website.ghost.io) & - [What's next for AI agentic workflows ft. Andrew Ng of AI Fund - 2024](https://www.youtube.com/watch?v=sal78ACtGTc)
 ) 
 
@@ -98,7 +98,7 @@ Understanding this lifecycle is crucial for developing effective prompts and tro
 
 
 ## [Inference Parameters](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference#request-body)
-
+Inference parameters are used to control the behavior of the model during inference. There are more inference parameters, we will cover the most common ones here.
 - **System prompt:** A system prompt is a way to **provide role playing, context, instructions, and few-shot to LLM**, while putting a question or task in the "User" turn. 
     - **Higher priority:** System messages define the primary behavior and are less likely to be overridden by a later user message.
     - **Consistency:** If your application always needs certain examples or guidelines, placing them in the system prompt ensures they remain in effect throughout the conversation.
@@ -134,8 +134,8 @@ You might also encounter the phrase "n-shot" or "one-shot". The number of "shots
 **Giving LLM examples of how you want it to behave (or how you want it not to behave) is extremely effective** for:
 
 - Getting the right answer
-- Getting the answer in the right format
-
+- Getting the answer in the right format (e.g. JSON, HTML, etc.). 
+    - Few-shot prompting is an effective way to obtain a JSON output when function calling or JSON mode is not supported by an LLM.
 
 
 ### For maximum effectiveness, make sure that your examples are:
@@ -242,7 +242,7 @@ Proposed by [Wang et al. (2022)](https://arxiv.org/abs/2203.11171), self-consist
 - ...
 
 ## General Tips for Designing Prompts
-
+Okey, we have covered the basics of prompt engineering. Now, let's dive into some general tips for designing prompts.
 ### 1. Start Simple: ([source](https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-the-openai-api))
    - As you get started with designing prompts, you should keep in mind that it is really an iterative process that requires a lot of experimentation to get optimal results. Using a simple playground, for example, Azure AI Foundry is a good starting point.
 
@@ -514,7 +514,7 @@ Some benefits of Structured Outputs include:
 - **Explicit refusals:** Safety-based model refusals are now programmatically detectable
 - **Simpler prompting:** No need for strongly worded prompts to achieve consistent formatting
 
-### **4 Effective Ways to Generate Structured Outputs**  
+#### **Four Effective Ways to Generate Structured Outputs**  
 
 When working with LLMs, ensuring **structured outputs** (such as JSON) can improve reliability and make parsing easier. Here are four key methods to achieve this:  
 
@@ -555,7 +555,7 @@ Structured Outputs is the evolution of JSON mode. While both ensure valid JSON i
 
 **Always using Structured Outputs instead of JSON mode when possible.**
 
-However, Structured Outputs with response_format: {type: "json_schema", ...} is only supported with the gpt-4o-mini, gpt-4o-mini-2024-07-18, and gpt-4o-2024-08-06 model snapshots and later.
+However, Structured Outputs with response_format: `{type: "json_schema", ...}` is only supported with the `gpt-4o-mini`, `gpt-4o-mini-2024-07-18`, and `gpt-4o-2024-08-06` model snapshots and later.
 
 
 
@@ -740,15 +740,51 @@ Now that you've explored various prompt engineering techniques and debunked comm
 
 Following the detailed steps above can sometimes feel overwhelming, but don't worry! To make things easier, here are some prompt generator tools that can streamline the process and help you craft effective prompts with ease.
 
+### **1. Anthropic Prompt Generator**  
+**Anthropic prompt generator** is my personal favorite. I use it frequently to **generate prompts** and **enhance existing ones** for better performance. It convert a simple text into a well-structured prompt. In most cases, you can use it as is without modifying the output.    
 
+An example input prompt:
+```
+Summarize an article.
+```
+Output prompt:
+```
+You are tasked with summarizing an article. Please follow these instructions carefully:
 
-If you're looking for ways to streamline your prompt engineering workflow, here are some powerful tools that can help you craft and refine high-quality prompts effortlessly.  
+1. First, read the following article in its entirety:
 
-### **1. Anthropic**  
-**Anthropic** is my personal favorite. I use it frequently to **generate prompts** and **enhance existing ones** for better performance.  
-🔗 [Try it here](https://console.anthropic.com/dashboard)  
+<article>
+{{ARTICLE}}
+</article>
+
+2. After reading, take a moment to analyze the article's main points, key arguments, and overall structure.
+
+3. Create a concise summary of the article that captures its essence. Your summary should:
+   - Identify the main topic or thesis of the article
+   - Highlight the key points and arguments presented
+   - Include any significant data, statistics, or examples that support the main ideas
+   - Maintain the original tone and intent of the article
+
+4. Your summary should be approximately 3-5 sentences long, or about 100-150 words. It should be written in a clear, objective style.
+
+5. After the summary, provide a brief assessment (2-3 sentences) of the article's main contributions or significance to its field or to the broader discourse.
+
+Please present your response in the following format:
+
+<summary>
+[Insert your 3-5 sentence summary here]
+</summary>
+
+<assessment>
+[Insert your 2-3 sentence assessment here]
+</assessment>
+
+Remember to focus on the most crucial information and maintain the original meaning of the article without inserting your own opinions or interpretations in the summary.
+
+```
 
 ![Anthropic Prompt Generator](./img/anthropic_prompt_generator.png)  
+🔗 [Try it here](https://console.anthropic.com/dashboard)  
 
 ### **2. Azure AI Foundry**  
 Microsoft's **Azure AI Foundry** provides robust AI-powered tools to assist with prompt generation and optimization, making it a great resource for AI developers.  
@@ -762,16 +798,12 @@ Microsoft's **Azure AI Foundry** provides robust AI-powered tools to assist with
 
 ![Microsoft 365 Copilot](./img/prompt_coach.png)  
 
-> Hands-on notebook: [Prompt_Generation.ipynb](https://github.com/AICrafterZheng/aicrafterzheng.github.io/blob/main/docs/posts/notebooks/Prompt_Generation.ipynb)
+> Hands-on notebook: [Prompt_Generation.ipynb](https://github.com/AICrafterZheng/aicrafterzheng.github.io/blob/main/docs/posts/notebooks/6.Prompt_Generation.ipynb)
 
 ## Reasoning Model (i.e. OpenAI o1/DeepSeek R1)
-- o1 models think before they answer, producing a long internal chain of thought before responding to the user. 
+Last but not least, let's quickly work through the reasoning model. 
 
-- How reasoning works  
-The o1 models introduce reasoning tokens. The models use these reasoning tokens to "think", **breaking down their understanding of the prompt and considering multiple approaches to generating a response.** After generating reasoning tokens, the model produces an answer as visible completion tokens, and discards the reasoning tokens from its context.
-
-Here is an example of a multi-step conversation between a user and an assistant. Input and output tokens from each step are carried over, while reasoning tokens are discarded.
-![](./img/reasoning_tokens.png)
+Reasoning models think before they answer, producing a long internal chain of thought before responding to the user. 
 
 ### Advice on reasoning model prompting
 These models perform best with straightforward prompts. Some prompt engineering techniques, like few-shot learning or instructing the model to "think step by step," may not enhance performance (and can sometimes hinder it). Here are some best practices:
@@ -782,11 +814,16 @@ These models perform best with straightforward prompts. Some prompt engineering 
 - **Try zero shot first, then few shot if needed:** Reasoning models often don't need few-shot examples to produce good results, so try to write prompts without examples first. If you have more complex requirements for your desired output, it may help to include a few examples of inputs and desired outputs in your prompt. Just ensure that the examples align very closely with your prompt instructions, as discrepancies between the two may produce poor results
 - **Limit additional context in retrieval-augmented generation (RAG):** When providing additional context or documents, include only the most relevant information to prevent the model from overcomplicating its response.
 
-**GPT-4o outputs the response right away**
+> As we observed in the previous sections, prompt engineering is an **iterative process**, and prompts should evolve alongside model advancements. The reasoning model demonstrates that a chain of thought is no longer necessary in the prompt.
+
+An example to illustrate the difference between the non-reasoning model and the reasoning model:  
+
+**Non-reasoning model outputs the response right away**
 ![](./img/gpt-4o.png)
 
-**Reasoning model outputs the response with its internal reasoning process**
+**Internal reasoning process occurs in reasoning model**
 ![](./img/resonning_model.png)
+
 
 Congratulations! You've made it through the entire prompt engineering guide. I hope you've found it helpful and informative. Happy prompting!
 
