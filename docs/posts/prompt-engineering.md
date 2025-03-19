@@ -28,9 +28,12 @@ authors:
 - [Prompt Generator Tools](#prompt-generator-tools)
 - [Reasoning Model (i.e. OpenAI o1/DeepSeek R1)](#reasoning-model-ie-openai-o1deepseek-r1)
 
+<br/>
+
 # What is prompt engineering?
 Prompt engineering is about "communicating" with LLM in a way that maximizes the model's understanding and performance on a given task. At its core, prompt engineering involves designing, refining, and optimizing the text inputs (prompts) given to models to elicit accurate, relevant, and useful responses.
 <!-- more -->
+<br/>
 # [Why prompt engineering matters?](https://www.microsoft.com/en-us/research/blog/the-power-of-prompting/)
 
 * **Enhancing AI capabilities:** Well-engineered prompts can dramatically improve an AI's performance, enabling it to tackle complex tasks with greater accuracy and efficiency.
@@ -73,7 +76,8 @@ By wraping in an **iterative agent workflow**, GPT-3.5 achieves up to 95.1% of G
 - Speed: The advanced models are slower to generate responses.
 - Availability: The advanced models might not be available in certain scenarios—for example, on edge devices. 
 
-## Basics of prompt engineering
+<br/>
+# Basics of prompt engineering
 A prompt contains any of the following elements:​
 
 - **Instruction:** a specific task or instruction you want the model to perform​.
@@ -85,7 +89,8 @@ You do not need all the four elements for a prompt and the format depends on the
 
 ![](./img/prompt_components.png)
 
-## The prompt engineering lifecycle
+<br/>
+# The prompt engineering lifecycle
 It would be nice to sit down at a blank page and craft the perfect prompt on the first try, but the reality is that **prompt engineering is an iterative process that involves creating, testing, and refining prompts to achieve optimal performance.**
 
 
@@ -100,7 +105,8 @@ Understanding this lifecycle is crucial for developing effective prompts and tro
 ![](./img/prompt_eng_lifecycle.png)
 
 
-## [Inference Parameters](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference#request-body)
+<br/>
+# [Inference Parameters](https://learn.microsoft.com/en-us/azure/ai-services/openai/reference#request-body)
 Inference parameters are used to control the behavior of the model during inference. There are more inference parameters, we only cover the most common ones here.  
 
 - **System prompt:** A system prompt is a way to **provide role playing, context, instructions, and few-shot to LLM**, while putting a question or task in the "User" turn. 
@@ -247,6 +253,7 @@ Proposed by [Wang et al. (2022)](https://arxiv.org/abs/2203.11171), self-consist
 - [Reflexion](https://www.promptingguide.ai/techniques/reflexion)
 - ...
 
+<br/>
 # General Tips for Designing Prompts
 Okey, we have covered the basics of prompt engineering. Now, let's dive into some general tips for designing prompts.
 ### 1. Start Simple: ([source](https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-the-openai-api))
@@ -702,6 +709,7 @@ Leverage prompt evaluation tools to accelerate your assessment process:
 
 
 
+<br/>
 # Common Misconceptions About Prompts
 
 ### 1. A prompt is static; write it once and you’re done. ❌
@@ -751,6 +759,7 @@ Leverage prompt evaluation tools to accelerate your assessment process:
 - ✅ **Reality:** As models keep improving, prompts that used to work can become obsolete. **Some prompting techniques might get “baked into” the model’s training, making them unnecessary later. You have to keep learning and adapting to changes in the model.**
 
 
+<br/>
 # Prompt Generator Tools
 
 Now that you've explored various prompt engineering techniques and debunked common misconceptions, you might be wondering—**how can you generate high-quality prompts effortlessly?**
@@ -817,6 +826,7 @@ Microsoft's **Azure AI Foundry** provides robust AI-powered tools to assist with
 
 > Hands-on notebook: [Prompt_Generation.ipynb](https://github.com/AICrafterZheng/aicrafterzheng.github.io/blob/main/docs/posts/notebooks/6.Prompt_Generation.ipynb)
 
+<br/>
 # Reasoning Model (i.e. OpenAI o1/DeepSeek R1)
 Finally, let's explore the reasoning model, which highlights that prompt engineering is an iterative process, requiring prompts to evolve alongside model advancements. For instance, the chain of thought is no longer necessary for the reasoning model.
 
