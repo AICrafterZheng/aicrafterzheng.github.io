@@ -29,6 +29,10 @@ authors:
 - [Reasoning Model (i.e. OpenAI o1/DeepSeek R1)](#reasoning-model-ie-openai-o1deepseek-r1)
 
 <br/>
+**Key Takeaways:**  
+Prompt engineering is an 𝗶𝘁𝗲𝗿𝗮𝘁𝗶𝘃𝗲 𝗽𝗿𝗼𝗰𝗲𝘀𝘀 involving continuous 𝘁𝗲𝘀𝘁𝗶𝗻𝗴, 𝗺𝗼𝗱𝗶𝗳𝗶𝗰𝗮𝘁𝗶𝗼𝗻, 𝗮𝗻𝗱 𝗼𝗽𝘁𝗶𝗺𝗶𝘇𝗮𝘁𝗶𝗼𝗻. As models continue to evolve, prompts must adapt accordingly to maintain effectiveness.
+
+<br/>
 
 # What is prompt engineering?
 Prompt engineering is about "communicating" with LLM in a way that maximizes the model's understanding and performance on a given task. At its core, prompt engineering involves designing, refining, and optimizing the text inputs (prompts) given to models to elicit accurate, relevant, and useful responses.
