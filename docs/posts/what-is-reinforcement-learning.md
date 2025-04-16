@@ -13,7 +13,7 @@ authors:
    - dannyzheng
 ---
 
-Just finished an incredible interview with Wu Yi — a Tsinghua alum and former OpenAI researcher — and his take on Reinforcement Learning (RL) was one of the clearest I’ve seen!
+Just finished listening to an incredible podcast featuring an interview with Wu Yi — a Tsinghua alum and former OpenAI researcher — and his take on Reinforcement Learning (RL) was one of the clearest I’ve seen!
 
 ### 🔍 1. What is RL really about?
 Wu Yi explains that RL is very different from traditional supervised learning (like image classification). In supervised learning, we train models using a fixed set of labeled data — one-shot answers.
