@@ -114,8 +114,9 @@ markdown_extensions:
 nav:
   - Home: 
     - Introductions: 'index.md'
-  # - Home:
-  #   - "index.md"
+  - Podcasts: 
+    - Introductions: 'podcasts.md'
+    - Become a better commnunicator: 'posts/podcasts/become_a_better_communicator.md'
 plugins:
   - social
   - rss:
@@ -136,7 +137,7 @@ plugins:
       enabled: !ENV CI
       blog_dir: ./
       blog_toc: true
-      post_dir: posts
+      post_dir: posts/my_blogs
       post_date_format: yyyy/MM/dd
       post_url_format: "{date}/{slug}"
       authors_file: "{blog}/.authors.yml"

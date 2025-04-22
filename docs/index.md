@@ -1,12 +1,7 @@
 ---
-authors:
-- dannyzheng
-categories:
-- Software Engineering
-comments: true
-date: 2024-05-22
+description: AI Engineer @ Microsoft | Building LLM & RAG Apps | Always learning, exploring and sharing the frontiers of AI.
 ---
 
 # Welcome to My Blog
 
-Always learning and exploring the frontiers of AI.
+AI Engineer @ Microsoft | Building LLM & RAG Apps | Always learning, exploring and sharing the frontiers of AI.
