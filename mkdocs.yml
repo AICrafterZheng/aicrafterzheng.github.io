@@ -117,6 +117,7 @@ nav:
   - Podcasts: 
     - Introductions: 'podcasts.md'
     - Become a better commnunicator: 'posts/podcasts/become_a_better_communicator.md'
+    - How to speak: 'posts/podcasts/how_to_speak.md'
 plugins:
   - social
   - rss:
