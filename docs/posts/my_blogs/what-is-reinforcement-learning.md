@@ -21,6 +21,7 @@ Wu Yi explains that RL is very different from traditional supervised learning (l
 RL, on the other hand, is more like playing a game: you need to make a sequence of decisions (serve, move, react), and there's no single “correct” path. The quality of your decisions is judged by the final outcome (win or lose). It’s about multi-step decision-making — much closer to how the real world works.
 
 ### 🤖 2. Why is RL hot again? What’s its connection to LLMs?
+<!-- more -->
 LLMs like GPT-3 were initially great at reciting facts but not great at following instructions.
 
 OpenAI used RL to fix that — specifically Reinforcement Learning from Human Feedback (RLHF). Humans rated model responses, which trained a “reward model” to guide LLMs to be more helpful, honest, and harmless.

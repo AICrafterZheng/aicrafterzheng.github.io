@@ -14,7 +14,6 @@ authors:
 # 🚀 The Future of Engineering & AI — Insights from CEOs
 
 
-
 ## Michael Truell - CEO of Cursor
 
 > "We're not going straight to a world where AI does everything and engineers disappear. Instead, engineers are shifting roles—from implementers to orchestrators."
@@ -22,6 +21,7 @@ authors:
 ### Everyone Become Engineering Managers
 
 > "I think something people don't talk enough about when discussing AI agents and AI engineers doing all this stuff for you… is basically we're all becoming engineering managers."
+<!-- more -->
 
 ### 1. **Engineering Manager Analogy**:
   - As AI agents take on more of the implementation work, human engineers increasingly focus on **specification**, **review**, and **iteration**.
@@ -43,10 +43,8 @@ authors:
   - Over-delegating to AI without sufficient understanding can lead to messy, unmaintainable code.
   - Cursor aims to empower engineers to stay in the driver’s seat while still leveraging automation.
 
+##### Source: [The rise of Cursor: The $300M ARR AI tool that engineers can’t stop using | Michael Truell](https://www.youtube.com/watch?v=En5cSXgGvZM).
 ---
-
-
-
 
 ## Varun Mohan - CEO of Windsurf (acquired by OpenAI)
 Why Varun believes 90% of Code Will Be AI-Generated — But Engineering Jobs Will Grow.
@@ -106,6 +104,7 @@ Why Varun believes 90% of Code Will Be AI-Generated — But Engineering Jobs Wil
 
 > “AI is not replacing engineers — it’s leveling them up.”  
 
+##### Source: [Building a magical AI code editor used by over 1m developers in 4 months: Inside Windsurf](https://www.youtube.com/watch?v=5Z0RCxDZdrE).
 ---
 
 ## Scott Wu - CEO of Cognition (maker of Devin)
@@ -144,3 +143,5 @@ Why Varun believes 90% of Code Will Be AI-Generated — But Engineering Jobs Wil
 ### 4. Moats and stickiness in AI
 >  "People talk about moats in AI — distribution, scale, model performance — but I think the real moat is user stickiness. AI that helps you with your data, your voice, your style, your tools, your business — the more personal it gets, the harder it is to switch."  
 > — Scott Wu
+
+##### Source: [Inside Devin: The AI engineer that's set to write 50% of its company’s code this year | Scott Wu](https://www.youtube.com/watch?v=gI0ZNhA0rvE)
