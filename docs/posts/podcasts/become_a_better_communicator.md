@@ -26,6 +26,7 @@ The impact of poor communication can be far more significant than most people re
 ### 1. Sales Before Logistics
 
 One common mistake is jumping straight into the "how" before establishing the "why." Wes advocates for a two-step approach:
+
 1. First, sell people on why something matters
 2. Only then share the logistics and details
 
@@ -34,6 +35,7 @@ Even for seemingly quick communications, spending 30 seconds to frame the "why" 
 ### 2. The MOO Framework (Most Obvious Objection)
 
 Before presenting ideas or sending important communications, ask yourself: What are the most obvious objections someone might have? This simple practice helps you:
+
 - Anticipate potential pushback
 - Address concerns proactively
 - Strengthen your argument before sharing

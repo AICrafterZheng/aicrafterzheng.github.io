@@ -115,9 +115,11 @@ nav:
   - Home: 
     - Introductions: 'index.md'
   - Podcasts: 
-    - Introductions: 'podcasts.md'
+    - Introductions: 'posts/podcasts/index.md'
     - Become a better commnunicator: 'posts/podcasts/become_a_better_communicator.md'
     - How to speak: 'posts/podcasts/how_to_speak.md'
+    - The truth about leadership: 'posts/podcasts/ceo_coaching.md'
+    - Persuasive communication and managing up: 'posts/podcasts/managing_up.md'
 plugins:
   - social
   - rss:
@@ -163,6 +165,3 @@ extra_javascript:
 
 docs_dir: docs
 site_dir: site
-
-extra_files:
-  - CNAME
