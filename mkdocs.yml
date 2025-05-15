@@ -120,6 +120,7 @@ nav:
     - How to speak: 'posts/podcasts/how_to_speak.md'
     - The truth about leadership: 'posts/podcasts/ceo_coaching.md'
     - Persuasive communication and managing up: 'posts/podcasts/managing_up.md'
+    - test: 'posts/podcasts/better_commnunicator.md'
 plugins:
   - social
   - rss:

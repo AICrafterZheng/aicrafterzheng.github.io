@@ -95,14 +95,27 @@ AI tools like Claude can be powerful allies in improving communication. Kao shar
 
 Becoming a better communicator isn't about dramatic changes—it's about making small, consistent investments in how we communicate. As Wes emphasizes, spending just a few extra minutes on important communications can yield significant returns in clarity, influence, and impact.
 
-## Recommended Books
+## Books Recommended
 
-1. "On Writing Well" by William Zinsser
-2. "Stein On Writing" by Sol Stein
-3. "On Writing" by Stephen King
-4. "High Output Management" by Andy Grove
-5. "Your Brain At Work" by Dr. David Rock
-6. "A Series of Short Sentences" (author not specified)
+Here are the books mentioned by Wes and Lenny, along with why they’re recommended:
+
+- **On Writing Well** by William Zinsser  
+  *Recommended for learning to write more concisely and clearly. “Chapter after chapter of, ‘Here’s what you can cut. And you can cut more…’”*
+
+- **Stein on Writing** by Sol Stein  
+  *Another classic writing book, praised for its tactical advice.*
+
+- **On Writing** by Stephen King  
+  *A popular memoir and guide on the craft of writing.*
+
+- **A Series of Short Sentences About Writing** by Verlyn Klinkenborg  
+  *Recommended for understanding the power of short sentences.*
+
+- **High Output Management** by Andy Grove  
+  *A classic on management and leadership, recommended by Wes.*
+
+- **Your Brain at Work** by Dr. David Rock  
+  *Helps you understand your own brain and attention span to better allocate mental resources.*
 
 ---
 
