@@ -121,6 +121,8 @@ nav:
     - The truth about leadership: 'posts/podcasts/ceo_coaching.md'
     - Persuasive communication and managing up: 'posts/podcasts/managing_up.md'
     - The power of introvert: 'posts/podcasts/the_power_of_introvert.md'
+    - How to overcome middle class: 'posts/podcasts/how_to_overcome_middle_class.md'
+    - How to make first fortune: 'posts/podcasts/how_to_make_first_fortune.md'
 plugins:
   - social
   - rss:

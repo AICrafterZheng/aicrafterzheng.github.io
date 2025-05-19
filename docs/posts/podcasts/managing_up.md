@@ -125,3 +125,6 @@ If you’re interested in creating your own cohort-based course, check out Maven
 ---
 
 *Inspired by Wes Kao’s appearance on Lenny’s Podcast. For more, follow Wes on [Twitter](https://twitter.com/wes_ko) or visit [maven.com](https://maven.com).*
+
+Podcast: [Persuasive communication and managing up | Wes Kao (Maven, altMBA, Section4)
+](https://www.youtube.com/watch?v=4jtGsyz4jLs)

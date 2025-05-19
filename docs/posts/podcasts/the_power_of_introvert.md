@@ -153,5 +153,7 @@ Ready to embrace your quiet power? Start by asking yourself: *If you had a free 
 
 ### Further Reading & Resources
 
+- [The hidden power of introverts: How to thrive without changing who you are | Susan Cain
+](https://www.youtube.com/watch?v=DkKGGfORHqw)
 - **Susan Cain’s Substack:** [thequietlife.net](https://thequietlife.net) — A community for the quiet, thoughtful, and sensitive.
 - **Lenny’s Podcast:** [lennyspodcast.com](https://lennyspodcast.com) — More episodes on product, growth, and career.

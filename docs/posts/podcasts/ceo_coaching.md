@@ -167,3 +167,6 @@ The path to great leadership—and a meaningful life—starts with radical hones
 ---
 
 *Ready to start your own journey of radical self-inquiry? Try journaling with Jerry’s four questions, or gather a circle of friends for an honest conversation. Remember: better humans make better leaders—and you are not alone.*
+
+Podcast: [How have I been complicit in creating the conditions I say I don’t want? | Jerry Colonna
+](https://www.youtube.com/watch?v=PJE7etZQ9us)
